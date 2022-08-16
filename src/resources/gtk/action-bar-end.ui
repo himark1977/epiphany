@@ -28,6 +28,12 @@
       </object>
     </child>
     <child>
+      <object class="GtkButton" id="overview_button">
+        <property name="icon-name">view-grid-symbolic</property>
+        <property name="action-name">win.tabs-view</property>
+      </object>
+    </child>
+    <child>
       <object class="GtkMenuButton" id="bookmark_button">
         <!-- Translators: tooltip for the bookmark button -->
         <property name="tooltip_text" translatable="yes">Bookmark page</property>

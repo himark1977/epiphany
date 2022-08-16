@@ -39,6 +39,7 @@ struct _EphyActionBarEnd {
   GtkWidget *downloads_popover;
   GtkWidget *downloads_icon;
   GtkWidget *browser_action_box;
+  GtkWidget *overview_button;
 
   GdkPaintable *downloads_paintable;
 
@@ -142,6 +143,9 @@ ephy_action_bar_end_class_init (EphyActionBarEndClass *klass)
   gtk_widget_class_bind_template_child (widget_class,
                                         EphyActionBarEnd,
                                         browser_action_box);
+  gtk_widget_class_bind_template_child (widget_class,
+                                        EphyActionBarEnd,
+                                        overview_button);
 }
 
 static void
@@ -272,4 +276,12 @@ ephy_action_bar_end_set_bookmark_icon_state (EphyActionBarEnd      *action_bar_e
     default:
       g_assert_not_reached ();
   }
+}
+
+void
+ephy_action_bar_end_set_adaptive_mode (EphyActionBarEnd *action_bar_end,
+                                       EphyAdaptiveMode  adaptive_mode)
+{
+  gtk_widget_set_visible (action_bar_end->overview_button,
+                          adaptive_mode == EPHY_ADAPTIVE_MODE_NORMAL);
 }
