@@ -21,17 +21,15 @@
 }
 
 /* incognito mode */
-.incognito-mode headerbar,
-.incognito-mode searchbar > revealer > box,
-.incognito-mode tabbar > revealer > box,
-.incognito-mode actionbar > revealer > box {
+.incognito-mode .top-bar,
+.incognito-mode .bottom-bar,
+.incognito-mode searchbar > revealer > box {
   background-color: #d7e3f0;
 }
 
-.incognito-mode headerbar:backdrop,
-.incognito-mode searchbar:backdrop > revealer > box,
-.incognito-mode tabbar:backdrop > revealer > box,
-.incognito-mode actionbar:backdrop > revealer > box {
+.incognito-mode .top-bar:backdrop,
+.incognito-mode .bottom-bar:backdrop,
+.incognito-mode searchbar:backdrop > revealer > box {
   background-color: #eaf0f7;
 }
 
@@ -40,17 +38,15 @@
 }
 
 /* automation mode */
-.automation-mode headerbar,
-.automation-mode searchbar > revealer > box,
-.automation-mode tabbar > revealer > box,
-.automation-mode actionbar > revealer > box {
+.automation-mode .top-bar,
+.automation-mode .bottom-bar,
+.automation-mode searchbar > revealer > box {
   background-color: #ffa348;
 }
 
-.automation-mode headerbar:backdrop,
-.automation-mode searchbar:backdrop > revealer > box,
-.automation-mode tabbar:backdrop > revealer > box,
-.automation-mode actionbar:backdrop > revealer > box {
+.automation-mode .top-bar:backdrop,
+.automation-mode .bottom-bar:backdrop,
+.automation-mode searchbar:backdrop > revealer > box {
   background-color: #ffbe6f;
 }
 
@@ -60,15 +56,16 @@ tabbar .end-action {
 }
 
 tabbar .end-action > revealer > menubutton {
-  margin: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 tabbar .end-action > revealer > menubutton:dir(ltr) {
-  margin-left: 0;
+  margin-right: 5px;
 }
 
 tabbar .end-action > revealer > menubutton:dir(rtl) {
-  margin-right: 0;
+  margin-left: 5px;
 }
 
 /* location entry */
@@ -194,20 +191,6 @@ popover.suggestions listview > row:selected:active {
   border-radius: 18px;
   background: rgba(0, 0, 0, 0.65);
   color: white;
-}
-
-fullscreenbox > flap > dimming,
-fullscreenbox > flap > outline,
-fullscreenbox > flap > border {
-  min-height: 0;
-  min-width: 0;
-  background: none;
-}
-
-fullscreenbox > flap > shadow {
-  min-height: 9px;
-  min-width: 9px;
-  background: linear-gradient(to bottom, alpha(black, .1), alpha(black, .0));
 }
 
 .pages-list row {

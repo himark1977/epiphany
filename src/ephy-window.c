@@ -154,7 +154,6 @@ struct _EphyWindow {
 
   GtkWidget *main_leaflet;
   EphyFullscreenBox *fullscreen_box;
-  GtkBox *titlebar_box;
   GtkWidget *header_bar;
   EphyPagesView *pages_view;
   EphyBookmarksManager *bookmarks_manager;
@@ -405,15 +404,19 @@ G_DEFINE_TYPE_WITH_CODE (EphyWindow, ephy_window, ADW_TYPE_APPLICATION_WINDOW,
 static void
 sync_chromes_visibility (EphyWindow *window)
 {
-  gboolean show_tabsbar;
+  gboolean show_tabsbar, fullscreen;
 
   if (window->closing)
     return;
 
   show_tabsbar = (window->chrome & EPHY_WINDOW_CHROME_TABSBAR);
+  fullscreen = gtk_window_is_fullscreen (GTK_WINDOW (window));
 
+  gtk_widget_set_visible (GTK_WIDGET (window->header_bar),
+                          !fullscreen || window->show_fullscreen_header_bar);
   gtk_widget_set_visible (GTK_WIDGET (window->tab_bar_revealer),
-                          show_tabsbar && !(window->is_popup));
+                          show_tabsbar && !(window->is_popup) &&
+                          (!fullscreen || window->show_fullscreen_header_bar));
 }
 
 static void
@@ -569,8 +572,8 @@ notify_fullscreen_cb (EphyWindow *window)
 
   ephy_fullscreen_box_set_fullscreen (window->fullscreen_box,
                                       fullscreen && window->show_fullscreen_header_bar);
-  gtk_widget_set_visible (GTK_WIDGET (window->titlebar_box),
-                          !fullscreen || window->show_fullscreen_header_bar);
+
+  sync_chromes_visibility (window);
 
   window->show_fullscreen_header_bar = FALSE;
 
@@ -3840,7 +3843,6 @@ static void
 ephy_window_constructed (GObject *object)
 {
   EphyWindow *window;
-  GtkBox *box;
   GAction *action;
   GActionGroup *action_group;
   GSimpleActionGroup *simple_action_group;
@@ -3959,17 +3961,13 @@ ephy_window_constructed (GObject *object)
   window->location_controller = setup_location_controller (window, EPHY_HEADER_BAR (window->header_bar));
   window->action_bar = setup_action_bar (window);
   window->toast_overlay = adw_toast_overlay_new ();
-  box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
-  adw_toast_overlay_set_child (ADW_TOAST_OVERLAY (window->toast_overlay), GTK_WIDGET (box));
-  window->titlebar_box = GTK_BOX (gtk_box_new (GTK_ORIENTATION_VERTICAL, 0));
+  adw_toast_overlay_set_child (ADW_TOAST_OVERLAY (window->toast_overlay), GTK_WIDGET (window->tab_view));
 
   gtk_revealer_set_child (window->tab_bar_revealer, GTK_WIDGET (window->tab_bar));
-  gtk_box_append (window->titlebar_box, GTK_WIDGET (window->header_bar));
-  gtk_box_append (window->titlebar_box, GTK_WIDGET (window->tab_bar_revealer));
-  gtk_box_append (box, GTK_WIDGET (window->tab_view));
-  gtk_box_append (box, GTK_WIDGET (window->action_bar));
   ephy_fullscreen_box_set_content (window->fullscreen_box, GTK_WIDGET (window->toast_overlay));
-  ephy_fullscreen_box_set_titlebar (window->fullscreen_box, GTK_WIDGET (window->titlebar_box));
+  ephy_fullscreen_box_add_top_bar (window->fullscreen_box, GTK_WIDGET (window->header_bar));
+  ephy_fullscreen_box_add_top_bar (window->fullscreen_box, GTK_WIDGET (window->tab_bar_revealer));
+  ephy_fullscreen_box_add_bottom_bar (window->fullscreen_box, window->action_bar);
 
   adw_leaflet_append (ADW_LEAFLET (window->main_leaflet), GTK_WIDGET (window->fullscreen_box));
   adw_leaflet_append (ADW_LEAFLET (window->main_leaflet), GTK_WIDGET (window->pages_view));
