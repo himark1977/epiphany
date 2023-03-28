@@ -20,7 +20,7 @@
 
 #pragma once
 
-#include <gtk/gtk.h>
+#include <adwaita.h>
 
 #include "ephy-tab-view.h"
 
@@ -28,7 +28,7 @@ G_BEGIN_DECLS
 
 #define EPHY_TYPE_PAGES_VIEW (ephy_pages_view_get_type ())
 
-G_DECLARE_FINAL_TYPE (EphyPagesView, ephy_pages_view, EPHY, PAGES_VIEW, GtkBox)
+G_DECLARE_FINAL_TYPE (EphyPagesView, ephy_pages_view, EPHY, PAGES_VIEW, AdwBin)
 
 EphyPagesView *ephy_pages_view_new               (void);
 

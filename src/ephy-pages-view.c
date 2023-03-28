@@ -28,7 +28,7 @@
 #include "ephy-window.h"
 
 struct _EphyPagesView {
-  GtkBox parent_instance;
+  AdwBin parent_instance;
 
   GtkListBox *list_box;
 
@@ -36,7 +36,7 @@ struct _EphyPagesView {
   EphyTabView *tab_view;
 };
 
-G_DEFINE_TYPE (EphyPagesView, ephy_pages_view, GTK_TYPE_BOX)
+G_DEFINE_TYPE (EphyPagesView, ephy_pages_view, ADW_TYPE_BIN)
 
 static void
 row_activated_cb (EphyPagesView *self,
