@@ -188,6 +188,8 @@ ephy_permission_is_stored_by_permissions_manager (EphyPermissionType type)
     case EPHY_PERMISSION_TYPE_ACCESS_WEBCAM_AND_MICROPHONE:
       /* fallthrough */
     case EPHY_PERMISSION_TYPE_COOKIES:
+      /* fallthrough */
+    case EPHY_PERMISSION_TYPE_CLIPBOARD:
       return FALSE;
     default:
       return TRUE;
