@@ -23,7 +23,7 @@ msgstr ""
 
 #: data/org.gnome.Epiphany.appdata.xml.in.in:6
 msgid "GNOME Web"
-msgstr "Web GNOME"
+msgstr "GNOME Web"
 
 #: data/org.gnome.Epiphany.appdata.xml.in.in:7
 msgid "Web browser for GNOME"
@@ -47,7 +47,7 @@ msgstr "Web GNOME este adesea menționat prin numele lui de cod, Epiphany."
 
 #: data/org.gnome.Epiphany.appdata.xml.in.in:22
 msgid "The GNOME web site displayed in GNOME Web"
-msgstr "Situl GNOME afișat în Web GNOME"
+msgstr "Site-ul GNOME afișat în GNOME Web"
 
 #: data/org.gnome.Epiphany.appdata.xml.in.in:36
 msgid "The GNOME Project"
@@ -65,7 +65,7 @@ msgstr "Navigator Internet"
 
 #: data/org.gnome.Epiphany.desktop.in.in:5
 msgid "Browse the web"
-msgstr "Navigare Internet"
+msgstr "Navigheaza pe internet"
 
 #. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: data/org.gnome.Epiphany.desktop.in.in:7
@@ -78,7 +78,7 @@ msgstr "Fereastră nouă"
 
 #: data/org.gnome.Epiphany.desktop.in.in:25
 msgid "New Incognito Window"
-msgstr "Fereastră incognito nouă"
+msgstr "Fereastră privată nouă"
 
 #: data/org.gnome.epiphany.gschema.xml:13
 msgid "Browse with caret"
@@ -152,7 +152,7 @@ msgid ""
 msgstr ""
 "Definește cum sesiunea va fi restaurată în timpul secvenței de pornire. "
 "Valorile permise sunt „always” (starea precedentă a aplicației este "
-"întotdeauna restaurată), „crashed” (sesiunea este restaurată numai dacă "
+"întotdeauna restaurată) și „crashed” (sesiunea este restaurată numai dacă "
 "aplicația crapă)."
 
 #: data/org.gnome.epiphany.gschema.xml:56
@@ -168,43 +168,43 @@ msgid ""
 "When this option is set to true, tabs will not start loading until the user "
 "switches to them, upon session restore."
 msgstr ""
-"Când această opțiune este stabilită la adevărat, taburile nu vor fi "
-"încărcate până când utilizatorul comută la ele, după restaurarea sesiunii."
+"Când această opțiune este stabilită adevarat, taburile nu vor fi "
+"încărcate până când utilizatorul comută pe ele, după restaurarea sesiunii."
 
 #: data/org.gnome.epiphany.gschema.xml:61
 msgid "List of adblock filters"
-msgstr "Lista filtrelor pentru blocarea de reclame"
+msgstr "Lista filtrelor pentru blocarea reclamelor"
 
 #: data/org.gnome.epiphany.gschema.xml:62
 msgid ""
 "List of URLs with content filtering rules in JSON format to be used by the "
 "ad blocker."
 msgstr ""
-"Listă de URL-uri cu reguli de filtre ale conținutului în format JSON de "
-"utilizat pentru blocarea reclamelor."
+"Lista de adrese URL cu reguli de filtrare a conținutului în format JSON care urmează să fie utilizate de către "
+"blocator reclamelor."
 
 #: data/org.gnome.epiphany.gschema.xml:66
 msgid "Whether to ask for setting browser as default"
-msgstr "Dacă se întreabă pentru stabilirea navigatorului web ca implicit"
+msgstr "Dacă doriți să solicitați să setați browserul ca fiind implicit"
 
 #: data/org.gnome.epiphany.gschema.xml:67
 msgid ""
 "When this option is set to true, browser will ask for being default if it is "
 "not already set."
 msgstr ""
-"Când această opțiune este stabilită la adevărat, navigatorul web va întreba "
+"Când această opțiune este stabilită adevărat, navigatorul web va întreba "
 "dacă se stabilește ca implicit dacă nu este deja stabilit."
 
 #: data/org.gnome.epiphany.gschema.xml:71
 msgid "Start in incognito mode"
-msgstr "Pornește în modul incognito"
+msgstr "Pornește în modul privat"
 
 #: data/org.gnome.epiphany.gschema.xml:72
 msgid ""
 "When this option is set to true, browser will always start in incognito mode"
 msgstr ""
 "Când această opțiune este stabilită la adevărat, navigatorul web va începe "
-"în modul incognito"
+"în modul privat"
 
 #: data/org.gnome.epiphany.gschema.xml:76
 msgid "Active clear data items."
@@ -227,8 +227,8 @@ msgstr ""
 #: data/org.gnome.epiphany.gschema.xml:83
 msgid "Expand tabs size to fill the available space on the tabs bar."
 msgstr ""
-"Expandează dimensiunea taburilor pentru a umple spațiul disponibil în bara "
-"cu taburi."
+"Extindeți dimensiunea filelor pentru a umple spațiul disponibil pe "
+"bara de file."
 
 #: data/org.gnome.epiphany.gschema.xml:84
 msgid ""
