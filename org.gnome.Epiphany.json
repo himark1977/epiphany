@@ -26,7 +26,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/elementary/icons.git"
+                    "url": "https://github.com/elementary/icons.git",
+                    "branch" : "main"
                 }
             ],
             "modules": [
@@ -120,7 +121,7 @@
             "sources" : [
                 {
                     "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/epiphany.git",
+                    "url" : "https://github.com/himark1977/epiphany.git",
                     "disable-shallow-clone" : true
                 }
             ]
